@@ -168,7 +168,7 @@ def compare_and_print(a1, a2, confidence_level=95):
         print('%g%% +/- %g%%' % (diff / mean_a1 * 100, err / mean_a1 * 100))
         print('(Student\'s t, pooled s = %g)' % pooled_s)
     else:
-        print('No difference proven at %.1f%% confidence\n' % confidence_level)
+        print('No difference proven at %.1f%% confidence' % confidence_level)
 
 
 def mean(arr):
