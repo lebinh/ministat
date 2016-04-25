@@ -1,5 +1,7 @@
-Python statistics library inspired by the `ministat` command
-=============================================================
+Python mini statistics library
+===============================
+
+Inspired by the `ministat <https://www.freebsd.org/cgi/man.cgi?query=ministat>`_ command.
 
 Install
 
