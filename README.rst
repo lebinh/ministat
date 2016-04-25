@@ -4,6 +4,7 @@ Python statistics library inspired by the `ministat` command
 Install
 
 ::
+
     pip install ministat
 
 Usage
@@ -28,4 +29,5 @@ Usage
 Tests (with `nose`)
 
 ::
+
     nosetests
