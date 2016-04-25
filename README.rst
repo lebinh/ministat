@@ -4,12 +4,14 @@ Python mini statistics library
 Inspired by the `ministat <https://www.freebsd.org/cgi/man.cgi?query=ministat>`_ command.
 
 Install
+--------
 
 ::
 
     pip install ministat
 
 Usage
+------
 
 ::
 
@@ -29,6 +31,7 @@ Usage
     (Student's t, pooled s = 154.676)
 
 Tests (with `nose`)
+--------------------
 
 ::
 
