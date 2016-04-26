@@ -1,4 +1,10 @@
-from ministat.ministat import lookup_t_value, pooled_s_value, compare
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIO
+
+
+from ministat.ministat import lookup_t_value, pooled_s_value, compare, compare_and_print
 
 iguana = [50, 200, 150, 400, 750, 400, 150]
 chameleon = [150, 400, 720, 500, 930]
@@ -24,3 +30,10 @@ def test_compare():
 def test_compare_at_lower_confidence():
     is_different, _, _, _ = compare(iguana, chameleon, confidence_level=80)
     assert is_different
+
+
+def test_compare_and_print():
+    buff = StringIO()
+    compare_and_print(iguana, chameleon, stream=buff)
+    assert buff.getvalue() == 'No difference proven at 95.0% confidence\n'
+

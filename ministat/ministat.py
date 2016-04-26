@@ -11,6 +11,8 @@
 from __future__ import division, print_function
 from math import sqrt, pow
 
+import sys
+
 NSTUDENT = 100
 STUDENT_PERCENTAGE = [80, 90, 95, 98, 99, 99.5]
 STUDENT = [
@@ -155,7 +157,7 @@ def compare(a1, a2, confidence_level=95):
     return False, s, diff, err
 
 
-def compare_and_print(a1, a2, confidence_level=95):
+def compare_and_print(a1, a2, confidence_level=95, stream=sys.stdout):
     """
     Compare if 2 lists are statistically different at given confidence level
     based on student's t-test and print out a mini report like the `ministat` tool.
@@ -163,12 +165,12 @@ def compare_and_print(a1, a2, confidence_level=95):
     is_different, pooled_s, diff, err = compare(a1, a2, confidence_level)
     if is_different:
         mean_a1 = mean(a1)
-        print('Difference at %.1f%% confidence' % confidence_level)
-        print('%g +/- %g' % (diff, err))
-        print('%g%% +/- %g%%' % (diff / mean_a1 * 100, err / mean_a1 * 100))
-        print('(Student\'s t, pooled s = %g)' % pooled_s)
+        print('Difference at %.1f%% confidence' % confidence_level, file=stream)
+        print('%g +/- %g' % (diff, err), file=stream)
+        print('%g%% +/- %g%%' % (diff / mean_a1 * 100, err / mean_a1 * 100), file=stream)
+        print('(Student\'s t, pooled s = %g)' % pooled_s, file=stream)
     else:
-        print('No difference proven at %.1f%% confidence' % confidence_level)
+        print('No difference proven at %.1f%% confidence' % confidence_level, file=stream)
 
 
 def mean(arr):
